@@ -1,17 +1,17 @@
 import 'dart:io';
 
 void main(){
-  Map <String, int> produtos = {'banana':10, 'maça':5, 'dolritos':15, 'nescau':18};
   Map<String, int> carrinho = {};
 
   print("Bem vindo ao mercado da Carol!!!!");
-  produtos.forEach((i, x) => print('$i está R\$$x'));
 
   stdout.write("Primeiro digite seu CPF: ");
-  String? CFP = stdin.readLineSync();
+  String? CPF = stdin.readLineSync();
+
+  double valorTotal = 0; 
 
   while(true){
-    stdout.write("Desejaa add produto(s/n): ");
+    stdout.write("Deseja add produto(s/n): ");
     String? escolha = stdin.readLineSync();
 
     if (escolha == 's'){
@@ -21,12 +21,46 @@ void main(){
       stdout.write("Digite o valor do produto: ");
       String? valorr = stdin.readLineSync(); 
       int valor = int.parse(valorr!);
+
+      valorTotal += valor;
       
       carrinho[produto!] = valor;
     }
-    else{
-      carrinho.forEach((i, x) => print('$i, $x'));
+    else if(escolha == 'n'){
+      print("\nSeu carrinho ficou assim: ");
+      carrinho.forEach((i, x) => print('$i R\$$x'));
+
+      print("Total: R\$$valorTotal");
       break;
     }
+    else{
+      print("Escolha não aceita");
+    }
   }
+  
+  if(valorTotal != 0){
+    print("\nEscolha a forma de pagamento: \n1- A vista(10% de desconto \n2- Parcelado no cartão(10% de juros) \n3-Fiado(15% a mais na proxima compra)");
+    int escolhaPagamento = int.parse(stdin.readLineSync()!);      
+
+    while(escolhaPagamento > 3 || escolhaPagamento < 1){
+      print("Escolha não aceita. Escolha a forma de pagamento: \n1- A vista(10% de desconto) \n2- Parcelado no cartão(10% de juros) \n3- Fiado(15% a mais na proxima compra)");
+      escolhaPagamento = int.parse(stdin.readLineSync()!);
+    }
+
+    switch(escolhaPagamento){
+      case 1:
+        valorTotal -= valorTotal * 0.10;
+        break;
+      case 2:
+        valorTotal += valorTotal * 0.10;   
+        break;
+      case 3:
+        valorTotal += valorTotal * 0.15;
+        print("vai ficar para a proxima conta,");
+    }   
+
+    print("O valor final de acordo com a opção $escolhaPagamento ficou de $valorTotal reais");
+  }
+
+  print("Volte sempre!!");
 }
