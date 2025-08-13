@@ -21,8 +21,7 @@ void main(){
       String? produto = stdin.readLineSync(); 
       
       stdout.write("Digite o valor do produto: ");
-      String? valorr = stdin.readLineSync(); 
-      int valor = int.parse(valorr!);
+      int valor = int.parse(stdin.readLineSync()!);
 
       valorTotal += valor;
       
@@ -58,11 +57,11 @@ void main(){
         break;
       case 3:
         valorTotal += valorTotal * 0.15;
-        print("vai ficar para a proxima conta,");
+        print("vai ficar para a proxima compra,");
     }   
 
     print("O valor final de acordo com a opção $escolhaPagamento ficou de $valorTotal reais");
   }
 
-  print("Volte sempre!!");
+  print("Volte sempre!!😉");
 }
