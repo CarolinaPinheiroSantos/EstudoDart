@@ -10,6 +10,7 @@ import 'dart:io';
 //on -> especificar o erro
 // finally -> idenpedente do que aconteça mostra
 
+//RangeError -> indice invalido
 
 void main(){
 
