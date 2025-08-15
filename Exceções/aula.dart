@@ -11,6 +11,7 @@ import 'dart:io';
 // finally -> idenpedente do que aconteça mostra
 
 //RangeError -> indice invalido
+//FormatExeption -> converter valores invalidos
 
 void main(){
 
