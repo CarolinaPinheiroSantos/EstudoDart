@@ -14,25 +14,26 @@
 import 'dart:io';
 
 void main() {
-  print("Enter your name");
-  String? username = stdin.readLineSync();
+  print("Digite seu nome");
+  String? nome = stdin.readLineSync();
 
-  if (username == null || username.trim().isEmpty) {
+  if (nome == null || nome.trim().isEmpty) {
     print("Null data");
   } else {
-    print("Ok $username");
+    print("Ok $nome");
   }
 
   try {
-    print("Enter your age");
+    print("Digite sua idade");
     int age = int.parse(stdin.readLineSync()!);
+    print(age);
   } on FormatException {
-    print("Enter just numbers");
+    print("só numeros");
   } on RangeError {
-    print("Range error");
+    print("erro range");
   } catch (e) {
-    print('Unknown error: $e');
+    print('Esse erro: $e');
   }finally{
-    print("Shuting program");
+    print("programa finalizado");
   }
 }
