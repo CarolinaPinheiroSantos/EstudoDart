@@ -2,32 +2,48 @@ import 'dart:io';
 
 void main(){
   while(true){
-    double valor;
+    double valor_final;
     try {
       print("Digite valor da compra: ");
-      valor = double.parse(stdin.readLineSync()!);
+      String? valor = stdin.readLineSync();
 
-      while (valor == null || valor.trim().isEmpty) {
+      if (valor == null || valor.trim().isEmpty) {
         print("Erro. Tente novamente");
-        stdout.write("Digite valor da compra: ");
-        valor = stdin.readLineSync();
+        continue;
       }
+
+      valor_final = double.parse(valor);
       break;
 
     } on FormatException {
-      stdout.write("Invalido.");
+      print("Invalido. Digite um Numeroo!");
     }
   }
 
-  print("Escolha a forma de pagamento: \n1- Dinheiro \n2- Cartao de debito \n3- Cartao de crédito \n4- Pix");
-  int escolhaPagamento = int.parse(stdin.readLineSync()!);
+  int escolhaPagamento_final = 0;
+  
+  while(escolhaPagamento_final > 4 || escolhaPagamento_final < 1){
+    try{
+      print("Escolha a forma de pagamento: \n1- Dinheiro \n2- Cartao de debito \n3- Cartao de crédito \n4- Pix");
+      String? escolhaPagamento = stdin.readLineSync();
 
-  while(escolhaPagamento > 4 || escolhaPagamento < 1){
-    print("Escolha a forma de pagamento: \n1- Dinheiro \n2- Cartao de debito \n3- Cartao de crédito \n4- Pix");
-    escolhaPagamento = int.parse(stdin.readLineSync()!);
+      if (escolhaPagamento == null || escolhaPagamento.trim().isEmpty) {
+        print("Erro. Tente novamente");
+        print("Escolha a forma de pagamento: \n1- Dinheiro \n2- Cartao de debito \n3- Cartao de crédito \n4- Pix");
+        continue;
+      }
+
+      escolhaPagamento_final = int.parse(escolhaPagamento);
+
+    } on FormatException{
+      print("Erro.");
+    }
+
+
   }
+  
 
-  switch(escolhaPagamento){
+  switch(escolhaPagamento_final){
     case 1:
       print("Metodo de pagamento - dinheiro");
       break;
