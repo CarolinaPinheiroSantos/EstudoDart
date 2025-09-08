@@ -1,18 +1,16 @@
 import 'dart:io';
-
 void main(){
   while(true){
-    double valor_final;
     try {
       print("Digite valor da compra: ");
       String? valor = stdin.readLineSync();
 
       if (valor == null || valor.trim().isEmpty) {
-        print("Erro. Tente novamente");
+        print("Erro. Nada digitado!!");
         continue;
       }
 
-      valor_final = double.parse(valor);
+      double valor_final = double.parse(valor);
       break;
 
     } on FormatException {

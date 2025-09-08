@@ -11,7 +11,7 @@ class Humano{
   Humano(this.nome,this.idade, this.genero, this.altura, this.peso);
 
   void exibirPessoa(){
-    print(this.nome);
+    print(nome);
   }
 
   void andar(){
