@@ -57,7 +57,7 @@ class Girafa extends Animal{
 
     @override
     void Comer(String nome){
-        print("$nome esta comendo folhas de árvores e arbustos");
+        print("Girafa $nome esta comendo folhas de árvores e arbustos");
     }
 
 }
@@ -79,7 +79,7 @@ class Hamster extends Animal{
 
     @override
     void Comer(String nome){
-        print("$nome esta comendo sementes e grãos");
+        print("Hamster $nome esta comendo sementes e grãos");
     }
 }
 
